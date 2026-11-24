@@ -1,28 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const memberHeader = document.querySelector('#member-header');
-    const guestHeader = document.querySelector('.navbar:not(.member-navbar)');
     const profileMenu = document.querySelector('.profile-menu');
     const profileTrigger = document.querySelector('.profile-menu-trigger');
     const profileMenuList = document.querySelector('#profile-menu-list');
-
-    const storedAuth = localStorage.getItem('skillhub-signed-in');
-    const isAuthenticated = storedAuth !== null
-        ? storedAuth === 'true'
-        : document.body.dataset.authenticated === 'true';
-
-    const setHeaderState = (authenticated) => {
-        if (memberHeader) {
-            memberHeader.hidden = !authenticated;
-        }
-        if (guestHeader) {
-            guestHeader.hidden = authenticated;
-            guestHeader.querySelectorAll('.nav-actions').forEach((guestActions) => {
-                guestActions.hidden = authenticated;
-            });
-        }
-    };
-
-    setHeaderState(isAuthenticated);
 
     if (profileTrigger && profileMenu && profileMenuList) {
         const closeProfileMenu = () => {
@@ -53,16 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 profileTrigger.focus();
             }
         });
-
-        const logoutButton = profileMenuList.querySelector('.profile-menu-logout');
-        if (logoutButton) {
-            logoutButton.addEventListener('click', () => {
-                localStorage.setItem('skillhub-signed-in', 'false');
-                document.body.dataset.authenticated = 'false';
-                setHeaderState(false);
-                closeProfileMenu();
-            });
-        }
     }
 
     const themeToggles = document.querySelectorAll('.theme-toggle');

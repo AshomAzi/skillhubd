@@ -104,7 +104,6 @@ select:focus-visible {
 }
 
 .member-navbar-inner {
-    display: flex;
     min-height: 58px;
     align-items: center;
     justify-content: space-between;
