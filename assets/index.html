@@ -1,0 +1,407 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ebf1e4">
+    <meta name="description"
+        content="Find trusted student talent and local freelancers for your next big idea on SkillHub.">
+    <title>SkillHub — Find your people. Make it happen.</title>
+    <link rel="icon" type="image/svg+xml" href="{% static 'assets/img/skillhub-favicon.svg' %}">
+    <script>
+        if (localStorage.getItem('skillhub-theme') === 'dark') {
+            document.documentElement.dataset.theme = 'dark';
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/css/index.css' %}">
+</head>
+
+<body data-authenticated="true">
+    <header class="site-header">
+        <nav class="navbar container" aria-label="Main navigation">
+            <a href="#" class="logo" aria-label="SkillHub home">
+                <span class="logo-mark" aria-hidden="true"><img src="{% static '/assets/img/skillhub-logo.svg' %}"
+                        alt=""></span>
+                skill<span>hub</span>
+            </a>
+
+            <div class="mobile-header-actions">
+                <button class="theme-toggle mobile-theme-toggle" type="button" aria-label="Switch to dark theme"
+                    aria-pressed="false" title="Switch to dark theme">
+                    <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.1 15.1A8.5 8.5 0 0 1 8.9 3.9 8.5 8.5 0 1 0 20.1 15.1Z"></path>
+                    </svg>
+                    <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path
+                            d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42">
+                        </path>
+                    </svg>
+                </button>
+                <button class="hamburger-btn" type="button" aria-label="Open navigation menu" aria-expanded="false"
+                    aria-controls="primary-navigation">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+            <div class="nav-links" id="primary-navigation">
+                <a class="nav-browse" href="#services">Explore services</a>
+                <a class="nav-sell" href="#how-it-works">How it works</a>
+                <div class="nav-actions">
+                    <a class="nav-login" href="./signin.html">Log in</a>
+                    <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false"
+                        title="Switch to dark theme">
+                        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20.1 15.1A8.5 8.5 0 0 1 8.9 3.9 8.5 8.5 0 1 0 20.1 15.1Z"></path>
+                        </svg>
+                        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <path
+                                d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42">
+                            </path>
+                        </svg>
+                    </button>
+                    <a href="./signup.html" class="btn btn-primary btn-small">Join SkillHub <span
+                            aria-hidden="true">↗</span></a>
+                </div>
+            </div>
+        </nav>
+        <nav class="navbar member-navbar container" id="member-header" aria-label="Member navigation">
+            <a href="#" class="logo" aria-label="SkillHub home">
+                <span class="logo-mark" aria-hidden="true"><img src="{% static '/assets/img/skillhub-logo.svg' %}"
+                        alt=""></span>
+                skill<span>hub</span>
+            </a>
+
+            <div class="mobile-header-actions">
+                <button class="theme-toggle mobile-theme-toggle" type="button" aria-label="Switch to dark theme"
+                    aria-pressed="false" title="Switch to dark theme">
+                    <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.1 15.1A8.5 8.5 0 0 1 8.9 3.9 8.5 8.5 0 1 0 20.1 15.1Z"></path>
+                    </svg>
+                    <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path
+                            d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42">
+                        </path>
+                    </svg>
+                </button>
+                <button class="hamburger-btn" type="button" aria-label="Open navigation menu" aria-expanded="false"
+                    aria-controls="member-navigation">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+
+
+            <div class="nav-links" id="member-navigation">
+                <a class="nav-browse" href="#services">Explore services</a>
+                <a class="nav-sell" href="#how-it-works">How it works</a>
+                <div class="member-actions">
+                    <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false"
+                        title="Switch to dark theme">
+                        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20.1 15.1A8.5 8.5 0 0 1 8.9 3.9 8.5 8.5 0 1 0 20.1 15.1Z"></path>
+                        </svg>
+                        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <path
+                                d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42">
+                            </path>
+                        </svg>
+                    </button>
+                    <a class="member-dashboard-link" href="./dashboard.html">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                            <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                            <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                            <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+                        </svg>
+                        Dashboard
+                    </a>
+
+                    <div class="profile-menu">
+                        <button class="profile-menu-trigger" type="button" aria-expanded="false"
+                            aria-controls="profile-menu-list" aria-label="Open profile menu">
+                            <img src="{% static '/assets/img/profile-avatar.svg' %}" alt="">
+                            <svg class="profile-chevron" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="m7 9.5 5 5 5-5"></path>
+                            </svg>
+                        </button>
+                        <div class="profile-menu-list" id="profile-menu-list" role="menu" hidden>
+                            <div class="profile-menu-heading">
+                                <strong>Alex Morgan</strong>
+                                <span>alex@example.com</span>
+                            </div>
+                            <a href="./dashboard.html" role="menuitem">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                                    <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                                    <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                                    <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+                                </svg>
+                                My dashboard
+                            </a>
+                            <a href="./dashboard.html#services" role="menuitem">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12 20h9"></path>
+                                    <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L8 18l-4 1 1-4Z"></path>
+                                </svg>
+                                Create or edit a service
+                            </a>
+                            <button class="profile-menu-logout" type="button" role="menuitem">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M10 17l5-5-5-5"></path>
+                                    <path d="M15 12H3"></path>
+                                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                                </svg>
+                                Log out
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-inner container">
+                <div class="hero-copy">
+                    <div class="eyebrow"><span class="eyebrow-dot"></span> GOOD WORK, RIGHT AROUND YOU</div>
+                    <h1>Big ideas need<br>the <span>right people.</span></h1>
+                    <p class="hero-description">Find talented students and independent creators ready to turn your
+                        next idea into something real.</p>
+
+                    <form class="search-bar" id="service-search" role="search">
+                        <label class="sr-only" for="search-query">What do you need help with?</label>
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="11" cy="11" r="7"></circle>
+                            <path d="m16 16 4 4"></path>
+                        </svg>
+                        <input id="search-query" type="search" name="q"
+                            placeholder="Try “logo design” or “Python tutor”">
+                        <button type="submit" class="btn btn-primary">Find a pro <span
+                                aria-hidden="true">→</span></button>
+                    </form>
+
+                    <div class="popular-searches">
+                        <span>Popular:</span>
+                        <button type="button" data-search-term="design">Design</button>
+                        <button type="button" data-search-term="development">Development</button>
+                        <button type="button" data-search-term="tutoring">Tutoring</button>
+                    </div>
+                </div>
+
+                <div class="hero-visual" aria-label="A collaborative team working together">
+                    <div class="hero-image">
+                        <img src="{% static 'assets/img/hero-section.jpg' %}"
+                            alt="A small creative team collaborating around a laptop">
+                        <div class="image-caption">
+                            <span class="caption-icon" aria-hidden="true">✳</span>
+                            <span><strong>Good things happen together.</strong><small>Find your next
+                                    collaborator</small></span>
+                        </div>
+                    </div>
+                    <div class="floating-note rating-note">
+                        <span class="note-stars" aria-hidden="true">★★★★★</span>
+                        <span><strong>Real people,</strong><small>real good work</small></span>
+                    </div>
+                    <div class="floating-note talent-note">
+                        <div class="talent-avatars" aria-hidden="true"><span>AD</span><span>MK</span><span>+</span>
+                        </div>
+                        <span><strong>Your next go-to team</strong><small>Starts right here</small></span>
+                    </div>
+                    <span class="hero-sparkle sparkle-one" aria-hidden="true">✳</span>
+                    <span class="hero-sparkle sparkle-two" aria-hidden="true">✦</span>
+                </div>
+            </div>
+            <div class="hero-bottom container" id="how-it-works">
+                <span><strong>One community.</strong> So many ways to make it happen.</span>
+                <a href="#services">Meet the community <span aria-hidden="true">↓</span></a>
+            </div>
+        </section>
+
+        <section class="services-section container" id="services">
+            <div class="section-heading">
+                <div>
+                    <span class="section-kicker">THE COMMUNITY MARKETPLACE</span>
+                    <h2>Find the help you need.</h2>
+                    <p>Good people. Great skills. All in one place.</p>
+                </div>
+                <a class="text-link" href="#services">Explore all services <span aria-hidden="true">→</span></a>
+            </div>
+
+            <div class="marketplace-controls">
+                <div class="categories-filter" role="group" aria-label="Filter by category">
+                    <button class="cat-btn active" type="button" data-category="all" aria-pressed="true">All
+                        services</button>
+                    <button class="cat-btn" type="button" data-category="development"
+                        aria-pressed="false">Development</button>
+                    <button class="cat-btn" type="button" data-category="design" aria-pressed="false">Design</button>
+                    <button class="cat-btn" type="button" data-category="writing" aria-pressed="false">Writing</button>
+                    <button class="cat-btn" type="button" data-category="tutoring"
+                        aria-pressed="false">Tutoring</button>
+                    <button class="cat-btn" type="button" data-category="marketing"
+                        aria-pressed="false">Marketing</button>
+                </div>
+                <label class="price-filter">
+                    <span class="sr-only">Filter by maximum price</span>
+                    <select id="price-filter" name="max_price">
+                        <option value="all">Any budget</option>
+                        <option value="10000">Under ₦10,000</option>
+                        <option value="20000">Under ₦20,000</option>
+                        <option value="50000">Under ₦50,000</option>
+                    </select>
+                    <span aria-hidden="true">⌄</span>
+                </label>
+            </div>
+
+            <p class="results-count" id="results-count" aria-live="polite"></p>
+
+            <div class="services-grid" id="services-grid">
+                <article class="service-card" data-category="development" data-price="15000"
+                    data-description="Build a Django backend and REST API for your product, including clear endpoint structure and practical setup guidance."
+                    data-search="django rest api development python backend programming">
+                    <a href="#service-django" class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&amp;fit=crop&amp;w=700&amp;q=80"
+                            alt="Code on a computer screen" loading="lazy">
+                        <span class="image-category">DEVELOPMENT</span>
+                    </a>
+                    <div class="card-body">
+                        <div class="owner-info"><span class="owner-avatar avatar-green">AA</span><span
+                                class="owner-name">Ashom A.</span><span class="seller-label">· Top seller</span></div>
+                        <a href="#service-django" class="service-title">Django &amp; REST API development</a>
+                        <div class="rating"><span aria-hidden="true">★</span><strong>4.9</strong><span
+                                class="rating-count">(18)</span></div>
+                        <div class="card-footer"><span class="starting-at">Starting at</span><span
+                                class="price-tag">₦15,000</span></div>
+                    </div>
+                    <button class="favorite-btn" type="button" aria-label="Save Django and REST API development"
+                        aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path
+                                d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0-.1-7.8Z">
+                            </path>
+                        </svg></button>
+                </article>
+            </div>
+
+            <div class="empty-state" id="empty-state" hidden>
+                <span aria-hidden="true">⌕</span>
+                <h3>No services found just yet</h3>
+                <p>Try a different search or clear your filters to see what's available.</p>
+                <button class="btn btn-outline" id="clear-filters" type="button">Clear filters</button>
+            </div>
+
+            <div class="browse-more"><a class="btn btn-outline" href="#services">Browse all services <span
+                        aria-hidden="true">→</span></a></div>
+        </section>
+
+        <section class="join-banner container" id="join">
+            <div class="join-mark" aria-hidden="true">✳</div>
+            <div>
+                <span class="section-kicker">YOUR SKILLS HAVE A HOME HERE</span>
+                <h2>Make something good happen.</h2>
+                <p>Find your next collaborator, or share what you do with a community that gets it.</p>
+            </div>
+            <a class="btn btn-dark" href="./signup.html">Get started <span aria-hidden="true">↗</span></a>
+        </section>
+    </main>
+
+    <dialog class="service-detail-dialog" id="service-detail-dialog" aria-labelledby="service-detail-title">
+        <div class="service-detail-content">
+            <button class="service-detail-close" type="button" aria-label="Close service details">×</button>
+            <img class="service-detail-image" id="service-detail-image" alt="">
+            <div class="service-detail-main">
+                <span class="section-kicker" id="service-detail-category"></span>
+                <h2 id="service-detail-title"></h2>
+                <p class="service-detail-description" id="service-detail-description"></p>
+                <p class="service-detail-price"><span>Starting at</span><strong id="service-detail-price"></strong></p>
+                <section class="provider-profile" aria-labelledby="provider-profile-heading">
+                    <h3 id="provider-profile-heading">About the provider</h3>
+                    <div class="provider-profile-identity">
+                        <span class="provider-profile-avatar" id="provider-profile-avatar" aria-hidden="true"></span>
+                        <div>
+                            <strong id="provider-profile-name"></strong>
+                            <span id="provider-profile-role"></span>
+                        </div>
+                    </div>
+                    <p id="provider-profile-bio"></p>
+                    <small>Email and phone number are kept private.</small>
+                    <button class="service-report-button" type="button" id="open-service-report">Report this
+                        service</button>
+                </section>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog class="service-report-dialog" id="service-report-dialog" aria-labelledby="service-report-heading">
+        <form id="service-report-form">
+            <div class="service-report-heading">
+                <div>
+                    <span class="section-kicker">HELP KEEP SKILLHUB SAFE</span>
+                    <h2 id="service-report-heading">Report this service</h2>
+                </div>
+                <button class="service-detail-close" type="button" data-close-report
+                    aria-label="Close report form">×</button>
+            </div>
+            <p class="service-reporting-service">Reporting: <strong id="report-service-title"></strong></p>
+            <p class="service-report-notice">This form is not connected to a review team. Reports are not saved or sent.
+            </p>
+            <div class="service-report-field">
+                <label for="report-reason">Why are you reporting this service?</label>
+                <select id="report-reason" name="reason" required>
+                    <option value="">Choose a reason</option>
+                    <option value="suspected-fraud">Suspected fraud or scam</option>
+                    <option value="misleading-listing">Misleading service description</option>
+                    <option value="prohibited-content">Inappropriate or prohibited content</option>
+                    <option value="other">Other concern</option>
+                </select>
+            </div>
+            <div class="service-report-field">
+                <label for="report-details">Additional details <span>(optional)</span></label>
+                <textarea id="report-details" name="details" maxlength="500" rows="4"
+                    placeholder="Share information that could help a reviewer understand your concern."></textarea>
+            </div>
+            <p class="service-report-status" id="service-report-status" role="status" aria-live="polite" hidden></p>
+            <div class="service-report-actions">
+                <button class="btn btn-outline" type="button" data-close-report>Cancel</button>
+                <button class="btn btn-primary" type="submit">Submit report</button>
+            </div>
+        </form>
+    </dialog>
+
+    <footer class="site-footer">
+        <div class="footer-main container">
+            <div class="footer-brand">
+                <a href="#" class="logo"><span class="logo-mark" aria-hidden="true"><img
+                            src="{% static '/assets/img/skillhub-logo.svg' %}" alt=""></span>skill<span>hub</span></a>
+                <p>A little community for big ideas.<br>Learn, earn, and build together.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Discover</h3><a href="#services">Explore services</a><a href="#how-it-works">How it works</a><a
+                    href="./signup.html">Become a seller</a>
+            </div>
+            <div class="footer-column">
+                <h3>Community</h3><a href="#join">About SkillHub</a><a href="#join">Help &amp; support</a><a
+                    href="#join">Contact us</a>
+            </div>
+            <div class="footer-column">
+                <h3>Say hello</h3><a href="mailto:hello@skillhub.example">skillhub_email</a><span>Made for people who
+                    make things.</span>
+            </div>
+        </div>
+        <div class="footer-bottom container"><span>© 2026 SkillHub. Built for the doers.</span><span>Made with care, for
+                the community <span class="footer-heart" aria-hidden="true">♥</span></span></div>
+    </footer>
+
+    <script src="{% static '/assets/js/index.js' %}"></script>
+</body>
+
+</html>
