@@ -1,0 +1,3 @@
+[submodule "templates/skillhub"]
+	path = templates/skillhub
+	url = https://github.com/AshomAzi/skillhub.git
