@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
+from .models import UserAgreement
 
 # Create your views here.
 
@@ -12,9 +13,9 @@ def signup(request):
         email = request.POST.get("email", "").strip()
         password = request.POST.get("password", "")
         password2 = request.POST.get("confirm_password", "")
-        # terms = request.POST.get("terms", "")
+        terms = request.POST.get("terms")
 
-        if firstName == None or lastName == None or email == None or username == None or password == None:
+        if firstName == None or lastName == None or email == None or username == None or password == None or terms == None:
             messages.info(request, "All fields are required!")
             return redirect("signup")
 
@@ -40,10 +41,14 @@ def signup(request):
             last_name=lastName,
             email=email,
             password=password2,
-            # terms=terms,
+        )
+
+        UserAgreement.objects.create(
+            user=user,
+            terms=True,
         )
         user.save()
-        print(f"User {user.first_name} {user.last_name} with username {user.username} and email {user.email} and password {user.password} was created")
+        print(f"User {user.first_name} {user.last_name} with username {user.username} and email {user.email} and password {user.password} and signed {UserAgreement.terms} was created.")
         return redirect("signin")
         
     else:
